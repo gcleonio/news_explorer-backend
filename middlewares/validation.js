@@ -3,7 +3,7 @@ const validator = require("validator");
 
 const validateId = celebrate({
   params: Joi.object().keys({
-    articleId: Joi.string().hex().length(24),
+    articleId: Joi.string().required().hex().length(24),
   }),
 });
 
