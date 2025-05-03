@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-// import jwt_secret, and node_env
+// import jwt_secret, and node_env from config folder in utils
+
 const User = require("../models/user");
 const InvalidError = require("../utils/errors/InvalidError");
 const ConflictError = require("../utils/errors/ConflictError");

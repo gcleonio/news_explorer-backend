@@ -5,11 +5,13 @@ const {
   addArticle,
   removeArticle,
 } = require("../controllers/articles");
-
-// import validation midddleware for addArticle and removeArticle
+const {
+  validateId,
+  validateArticleBody,
+} = require("../middlewares/validation");
 
 router.get("/", handleAuthorization, getArticles);
-router.post("/", handleAuthorization, // validateArticleBody, addArticle);
-router.delete("/:articleId", handleAuthorization, // validateId, // removeArticle);
+router.post("/", handleAuthorization, validateArticleBody, addArticle);
+router.delete("/:articleId", handleAuthorization, validateId, removeArticle);
 
 module.exports = router;
