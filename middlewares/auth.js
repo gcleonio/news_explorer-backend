@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-// import JWT_secret and NODE_ENV from config folder in utils
+const { JWT_SECRET, NODE_ENV } = require("../utils/config");
 
 const UnauthorizedError = require("../utils/errors/UnauthorizedError");
 
