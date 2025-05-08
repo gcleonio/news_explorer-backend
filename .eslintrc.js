@@ -4,6 +4,7 @@ module.exports = {
     node: true,
   },
   extends: ["eslint:recommended", "airbnb-base", "prettier"],
+  plugins: ["prettier"],
   overrides: [
     {
       env: {
@@ -23,5 +24,7 @@ module.exports = {
     "no-console": ["warn", { allow: ["error"] }],
     "no-underscore-dangle": ["error", { allow: ["_id"] }],
     "no-unused-vars": ["error", { argsIgnorePattern: "next" }],
+    "prettier/prettier": "error",
+    "no-underscore-dangle": ["error", { allow: ["_id"] }],
   },
 };
