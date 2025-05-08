@@ -10,6 +10,7 @@ const { MONGO_DB_CONNECTION } = require("./utils/config");
 
 const { PORT = 3002 } = process.env;
 require("dotenv").config();
+
 const app = express();
 app.use(express.json());
 
@@ -32,7 +33,7 @@ mongoose.connect(
   },
   (e) => {
     console.error("Error connecting to MongoDB", e);
-  }
+  },
 );
 
 // Logging

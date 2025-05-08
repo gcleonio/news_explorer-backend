@@ -5,8 +5,8 @@ const messageFormat = winston.format.combine(
   winston.format.timestamp(),
   winston.format.printf(
     ({ level, message, meta, timestamp }) =>
-      `${timestamp} ${level}: ${meta.error?.stack || message}`
-  )
+      `${timestamp} ${level}: ${meta.error?.stack || message}`,
+  ),
 );
 
 const requestLogger = expressWinston.logger({
@@ -26,7 +26,7 @@ const errorLogger = expressWinston.errorLogger({
     new winston.transports.Console({
       format: winston.format.combine(
         winston.format.colorize(),
-        winston.format.simple()
+        winston.format.simple(),
       ),
     }),
     new winston.transports.File({

@@ -21,7 +21,7 @@ const handleAuthorization = (req, res, next) => {
     console.log(NODE_ENV === "production" ? JWT_SECRET : "dev-secret");
     payload = jwt.verify(
       token,
-      NODE_ENV === "production" ? JWT_SECRET : "dev-secret"
+      NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
     );
   } catch (err) {
     return authError(next);
