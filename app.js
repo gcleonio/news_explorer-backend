@@ -29,15 +29,14 @@ app.use(limiter);
 
 // Database connection
 mongoose.set("strictQuery", true);
-mongoose.connect(
-  MONGO_DB_CONNECTION,
-  (r) => {
-    console.log("Connected to MongoDB", r);
-  },
-  (e) => {
-    console.error("Error connecting to MongoDB", e);
-  },
-);
+mongoose
+  .connect(MONGO_DB_CONNECTION)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
 
 // Logging
 app.use(requestLogger);
