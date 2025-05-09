@@ -9,6 +9,7 @@ const errorHandler = require("./middlewares/error-handler");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 const mainRouter = require("./routes/index");
 const { MONGO_DB_CONNECTION } = require("./utils/config");
+const limiter = require("./middlewares/limiter");
 
 const { PORT = 3002 } = process.env;
 
@@ -24,6 +25,7 @@ app.get("/crash-test", () => {
 // Middleware
 app.use(helmet());
 app.use(cors());
+app.use(limiter);
 
 // Database connection
 mongoose.set("strictQuery", true);
@@ -46,7 +48,7 @@ app.use(mainRouter);
 // Error Logging
 app.use(errorLogger);
 
-// Celebreate Error Handler
+// Celebrate Error Handler
 app.use(errors());
 
 // Centralized Error Handler
