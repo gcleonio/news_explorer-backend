@@ -47,7 +47,7 @@ const removeArticle = (req, res, next) => {
       if (userId !== article.owner.toString()) {
         throw new ForbiddenError(NOT_OWNER);
       }
-      return Article.findByIdAndRemove(articleId)
+      return Article.findByIdAndDelete(articleId)
         .orFail(() => new NotFoundError(ARTICLE_NOT_FOUND))
         .then((removedArticle) => res.send(removedArticle))
         .catch(next);
