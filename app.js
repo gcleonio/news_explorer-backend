@@ -29,14 +29,17 @@ app.use(limiter);
 
 // Database connection
 mongoose.set("strictQuery", true);
-mongoose
-  .connect(MONGO_DB_CONNECTION)
-  .then(() => {
+async function connectToDatabase() {
+  try {
+    await mongoose.connect(MONGO_DB_CONNECTION);
     console.log("Connected to MongoDB");
-  })
-  .catch((err) => {
+  } catch (err) {
     console.error("Error connecting to MongoDB:", err);
-  });
+    process.exit(1);
+  }
+}
+
+connectToDatabase();
 
 // Logging
 app.use(requestLogger);
