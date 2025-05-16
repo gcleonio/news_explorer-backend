@@ -1,1 +1,5 @@
-# news_explorer-backend
+# News Explorer: Backend
+
+## Domain
+
+https://api.newsexplorerproject.jumpingcrab.com/
