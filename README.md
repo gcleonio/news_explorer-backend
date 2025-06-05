@@ -36,3 +36,6 @@ npm run dev
 Project link: https://newsexplorerproject.jumpingcrab.com/
 
 Deployed Backend: https://api.newsexplorerproject.jumpingcrab.com/
+
+Frontend Repo:
+https://github.com/gcleonio/news_explorer/
